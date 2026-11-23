@@ -1,0 +1,1247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yucca Packaging | Packaging that Performs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cream: #fffdf5;
+    --green: #183326;
+    --dark: #1d1d1b;
+    --beige: #dfdac6;
+    --light: #f5f2e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* NAVBAR */
+
+.navbar {
+    height: 85px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: var(--green);
+}
+
+.logo span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    display: block;
+    margin-top: -5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 13px;
+    transition: opacity .3s;
+}
+
+.nav-links a:hover {
+    opacity: .55;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-button {
+    border: 1px solid var(--green);
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: transparent;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.nav-button:hover {
+    background: var(--green);
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+    padding: 55px 6% 30px;
+}
+
+.hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(60px, 9.2vw, 140px);
+    font-weight: 500;
+    letter-spacing: -7px;
+    line-height: .92;
+    max-width: 1250px;
+    margin-bottom: 40px;
+}
+
+.hero-title .italic {
+    font-style: italic;
+    color: #61745d;
+}
+
+.hero-image {
+    height: 540px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-image img {
+    height: 100%;
+    transition: transform 1s;
+}
+
+.hero-image:hover img {
+    transform: scale(1.03);
+}
+
+.hero-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+    font-size: 13px;
+    background: rgba(24,51,38,.75);
+    padding: 12px 18px;
+    border-radius: 40px;
+}
+
+/* INDUSTRIES */
+
+.section {
+    padding: 120px 6%;
+}
+
+.section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 6vw, 85px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -3px;
+    margin-bottom: 55px;
+}
+
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.industry-card {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 4px;
+    color: white;
+}
+
+.industry-card img {
+    height: 100%;
+    transition: transform .8s;
+}
+
+.industry-card:hover img {
+    transform: scale(1.07);
+}
+
+.industry-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,.65), transparent 75%);
+}
+
+.industry-content {
+    position: absolute;
+    bottom: 30px;
+    left: 28px;
+    right: 28px;
+    z-index: 2;
+}
+
+.industry-content h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.industry-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 350px;
+    margin-bottom: 22px;
+}
+
+.text-link {
+    font-size: 12px;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 5px;
+}
+
+/* STATEMENT */
+
+.statement {
+    background: var(--green);
+    color: var(--cream);
+    padding: 120px 6%;
+}
+
+.statement h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: clamp(45px, 7vw, 100px);
+    line-height: 1.05;
+    letter-spacing: -4px;
+    max-width: 1100px;
+}
+
+.statement h2 em {
+    color: #c6cfb6;
+}
+
+.statement-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 60px;
+}
+
+.statement-bottom p {
+    max-width: 400px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.round-link {
+    width: 125px;
+    height: 125px;
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: .4s;
+}
+
+.round-link:hover {
+    background: white;
+    color: var(--green);
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-image {
+    height: 600px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.about-image img {
+    height: 100%;
+}
+
+.about-text h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(45px, 6vw, 75px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.about-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 45px;
+}
+
+.mission-vision h4 {
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.mission-vision p {
+    font-size: 13px;
+}
+
+/* PRODUCTS */
+
+.products {
+    background: var(--light);
+}
+
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 45px;
+}
+
+.products-header h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(45px, 6vw, 75px);
+    font-weight: 500;
+    letter-spacing: -3px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    background: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.product-image {
+    height: 290px;
+    background: #e8e4d9;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    height: 100%;
+    transition: transform .6s;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--green);
+    color: white;
+    font-size: 10px;
+    padding: 7px 11px;
+    border-radius: 20px;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.product-info p {
+    font-size: 13px;
+    color: #777;
+}
+
+.product-button {
+    margin-top: 18px;
+    border: 1px solid #ddd;
+    background: transparent;
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.product-button:hover {
+    background: var(--green);
+    color: white;
+}
+
+/* CUSTOM SOLUTIONS */
+
+.custom {
+    background: var(--beige);
+    text-align: center;
+    padding: 120px 6%;
+}
+
+.custom h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(48px, 8vw, 115px);
+    line-height: 1;
+    letter-spacing: -5px;
+    font-weight: 500;
+    max-width: 1050px;
+    margin: 0 auto 35px;
+}
+
+.custom p {
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 550px;
+    margin: 0 auto 35px;
+}
+
+.dark-button {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    padding: 16px 30px;
+    border-radius: 40px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.dark-button:hover {
+    background: #304c3b;
+    transform: translateY(-3px);
+}
+
+/* CERTIFICATIONS */
+
+.certifications {
+    text-align: center;
+}
+
+.certifications h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(40px, 5vw, 65px);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.certifications p {
+    max-width: 550px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 14px;
+    color: #666;
+}
+
+.cert-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.cert {
+    border: 1px solid #d6d1c4;
+    border-radius: 50px;
+    padding: 18px 30px;
+    font-size: 13px;
+}
+
+/* FAQ */
+
+.faq {
+    background: var(--light);
+}
+
+.faq-list {
+    max-width: 850px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #d3d0c6;
+    padding: 25px 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.faq-question span:last-child {
+    font-size: 25px;
+    transition: transform .3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease;
+}
+
+.faq-answer p {
+    padding-top: 20px;
+    line-height: 1.8;
+    color: #666;
+    font-size: 14px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+.faq-item.active .faq-question span:last-child {
+    transform: rotate(45deg);
+}
+
+/* FOOTER */
+
+.footer {
+    background: var(--green);
+    color: white;
+    padding: 80px 6% 30px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 65px;
+}
+
+.footer-logo {
+    font-size: 45px;
+    font-weight: 700;
+    letter-spacing: -3px;
+}
+
+.footer h4 {
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 13px;
+}
+
+.footer-links a {
+    font-size: 13px;
+    opacity: .7;
+    transition: opacity .3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.2);
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    opacity: .7;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .industry-card {
+        height: 400px;
+    }
+
+    .about {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 25px 6%;
+        background: var(--cream);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-right .nav-button {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 35px;
+    }
+
+    .hero-title {
+        font-size: 65px;
+        letter-spacing: -4px;
+    }
+
+    .hero-image {
+        height: 350px;
+    }
+
+    .section {
+        padding: 80px 6%;
+    }
+
+    .industry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .industry-card {
+        height: 420px;
+    }
+
+    .statement h2 {
+        letter-spacing: -2px;
+    }
+
+    .statement-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        height: 400px;
+    }
+
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 210px;
+    }
+
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .custom h2 {
+        letter-spacing: -2px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .hero-title {
+        font-size: 54px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 300px;
+    }
+
+    .round-link {
+        width: 100px;
+        height: 100px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <a href="#" class="logo">
+        yucca
+        <span>PACKAGING</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#products">Shop</a></li>
+        <li><a href="#industries">Packaging Solutions</a></li>
+        <li><a href="#about">Company</a></li>
+        <li><a href="#faq">Resources</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <a href="#contact" class="nav-button">Credit Application ↗</a>
+        <a href="#products" class="nav-button">Shop ↗</a>
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+    <h1 class="hero-title reveal">
+        Packaging<br>
+        that <span class="italic">Performs.</span><br>
+        Innovated for<br>
+        Industry Leaders.
+    </h1>
+
+    <div class="hero-image reveal">
+        <img src="https://images.unsplash.com/photo-1601593768794-4b6d8e4b5b7b?auto=format&fit=crop&w=1800&q=85"
+             alt="Food packaging and fresh food presentation">
+        <div class="hero-caption">Innovative packaging. Exceptional performance.</div>
+    </div>
+
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section" id="industries">
+
+    <p class="section-label reveal">What we do</p>
+
+    <h2 class="section-heading reveal">
+        Innovated for<br>Industry Leaders.
+    </h2>
+
+    <div class="industry-grid">
+
+        <div class="industry-card reveal">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
+                 alt="Food service">
+            <div class="industry-content">
+                <h3>Food Service</h3>
+                <p>Packaging that elevates your brand experience. From cups and bowls to catering and takeaway.</p>
+                <a href="#products" class="text-link">Explore solutions ↗</a>
+            </div>
+        </div>
+
+        <div class="industry-card reveal">
+            <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=900&q=85"
+                 alt="Food processing">
+            <div class="industry-content">
+                <h3>Food Processing</h3>
+                <p>Reliable packaging designed to preserve freshness, reduce waste and protect quality.</p>
+                <a href="#products" class="text-link">Explore solutions ↗</a>
+            </div>
+        </div>
+
+        <div class="industry-card reveal">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85"
+                 alt="Agriculture and fresh produce">
+            <div class="industry-content">
+                <h3>Agriculture</h3>
+                <p>Smart produce packaging solutions that keep products fresh from harvest to shelf.</p>
+                <a href="#products" class="text-link">Explore solutions ↗</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATEMENT -->
+<section class="statement reveal">
+
+    <h2>
+        Committed to Excellence,
+        always <em>Innovating.</em>
+    </h2>
+
+    <div class="statement-bottom">
+        <p>
+            Remarkable packaging is our promise to you.
+            What doesn't meet our standards is refined until it does.
+            Quality, sustainability and innovation drive everything we do.
+        </p>
+
+        <a href="#about" class="round-link">About us ↗</a>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+
+    <div class="about-image reveal">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1100&q=85"
+             alt="Sustainable packaging materials">
+    </div>
+
+    <div class="about-text reveal">
+
+        <p class="section-label">Who we are</p>
+
+        <h2>Built on trust.<br>Driven by quality.</h2>
+
+        <p>
+            Yucca Packaging delivers reliable and innovative packaging solutions
+            to food service, food processing and agricultural businesses.
+            We work with trusted global partners to provide products
+            that meet modern industry requirements.
+        </p>
+
+        <div class="mission-vision">
+
+            <div>
+                <h4>Our Mission</h4>
+                <p>
+                    Providing world-class, compliant packaging
+                    for businesses across the globe.
+                </p>
+            </div>
+
+            <div>
+                <h4>Our Vision</h4>
+                <p>
+                    Becoming the trusted packaging supplier
+                    known for quality and sustainable innovation.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+
+    <div class="products-header reveal">
+        <div>
+            <p class="section-label">Our selection</p>
+            <h2>New Products</h2>
+        </div>
+
+        <a href="#contact" class="text-link">Shop all products ↗</a>
+    </div>
+
+    <div class="product-grid">
+
+        <div class="product-card reveal">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85"
+                     alt="White food containers">
+                <span class="product-tag">Promotion</span>
+            </div>
+            <div class="product-info">
+                <h3>White Ice Cream Tubs</h3>
+                <p>From R 0.72 incl. VAT</p>
+                <button class="product-button" onclick="addToCart('White Ice Cream Tubs')">Add to cart +</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1606851091899-1a6c1e6f6f3?auto=format&fit=crop&w=800&q=85"
+                     alt="Kraft paper packaging">
+                <span class="product-tag">Promotion</span>
+            </div>
+            <div class="product-info">
+                <h3>Kraft Pouch Bag With Window</h3>
+                <p>From R 1.86 incl. VAT</p>
+                <button class="product-button" onclick="addToCart('Kraft Pouch Bag With Window')">Add to cart +</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=85"
+                     alt="Coffee cup packaging">
+                <span class="product-tag">Promotion</span>
+            </div>
+            <div class="product-info">
+                <h3>Aqua Double Wall Kraft Coffee Cup</h3>
+                <p>From R 2.30 incl. VAT</p>
+                <button class="product-button" onclick="addToCart('Kraft Coffee Cup')">Add to cart +</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=85"
+                     alt="Kraft food tubs">
+                <span class="product-tag">Promotion</span>
+            </div>
+            <div class="product-info">
+                <h3>Kraft Ice Cream Tubs</h3>
+                <p>From R 1.44 incl. VAT</p>
+                <button class="product-button" onclick="addToCart('Kraft Ice Cream Tubs')">Add to cart +</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CUSTOM SOLUTIONS -->
+<section class="custom reveal">
+
+    <p class="section-label">Custom solutions</p>
+
+    <h2>
+        Brands that thrive invest in custom-designed packaging.
+    </h2>
+
+    <p>
+        Let us help bring your vision to life.
+        Create packaging that reflects your brand, protects your product
+        and makes a lasting impression.
+    </p>
+
+    <a href="#contact" class="dark-button">Let's talk about your project ↗</a>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section certifications reveal">
+
+    <p class="section-label">Quality assurance</p>
+
+    <h2>Factory & Product Standards</h2>
+
+    <p>
+        Our partners share our commitment to responsible practices.
+        Every product is held to the highest standards of quality,
+        compliance and sustainability.
+    </p>
+
+    <div class="cert-list">
+        <div class="cert">FDA</div>
+        <div class="cert">EU 10/2011</div>
+        <div class="cert">BRCGS</div>
+        <div class="cert">FSC</div>
+        <div class="cert">GRS</div>
+        <div class="cert">BPI</div>
+        <div class="cert">ISO 9001</div>
+        <div class="cert">ISO 14001</div>
+        <div class="cert">ISO 22000</div>
+        <div class="cert">FSSC 22000</div>
+    </div>
+
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+
+    <p class="section-label">FAQs</p>
+
+    <h2 class="section-heading">Frequently asked questions.</h2>
+
+    <div class="faq-list">
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What types of packaging do you offer?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We supply a wide range of food, produce and custom packaging, from ready-to-order items to bespoke branded solutions.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do you deliver nationwide?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, nationwide delivery is available across South Africa.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do you offer sustainable packaging?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We offer recyclable, compostable and renewable packaging material options, depending on the product.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How can I order custom packaging?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Contact our team to discuss your product requirements, branding, quantities and custom packaging options.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+
+    <div class="footer-top">
+
+        <div>
+            <div class="footer-logo">yucca</div>
+            <p style="margin-top:15px; font-size:12px; opacity:.7;">
+                Packaging that performs.
+            </p>
+        </div>
+
+        <div>
+            <h4>Explore</h4>
+            <ul class="footer-links">
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#industries">Packaging Solutions</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#faq">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Industries</h4>
+            <ul class="footer-links">
+                <li><a href="#industries">Food Service</a></li>
+                <li><a href="#industries">Food Processing</a></li>
+                <li><a href="#industries">Agriculture</a></li>
+                <li><a href="#contact">Custom Packaging</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <ul class="footer-links">
+                <li><a href="mailto:info@yucca.co.za">Email us</a></li>
+                <li><a href="tel:+27219492296">+27 21 949 2296</a></li>
+                <li><a href="#contact">Cape Town, South Africa</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Yucca Packaging. All rights reserved.</p>
+        <p>Packaging. Purpose. Performance.</p>
+    </div>
+
+</footer>
+
+<script>
+
+/* MOBILE MENU */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    menuToggle.textContent =
+        navLinks.classList.contains("active") ? "✕" : "☰";
+});
+
+/* CLOSE MOBILE MENU ON CLICK */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+    });
+});
+
+/* FAQ ACCORDION */
+
+document.querySelectorAll(".faq-question").forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const item = question.parentElement;
+        const wasActive = item.classList.contains("active");
+
+        document.querySelectorAll(".faq-item").forEach(faq => {
+            faq.classList.remove("active");
+        });
+
+        if (!wasActive) {
+            item.classList.add("active");
+        }
+
+    });
+
+});
+
+/* CART DEMO */
+
+let cartCount = 0;
+
+function addToCart(productName) {
+    cartCount++;
+
+    alert(
+        productName + " added to cart!\n" +
+        "Items in your demo cart: " + cartCount
+    );
+}
+
+/* SCROLL REVEAL ANIMATION */
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+
+    });
+
+}, {
+    threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
